@@ -37,6 +37,6 @@ jobs:
       - name: BUILD IMAGE
         run: docker build -t bvdidev-stdio/ci-test:$GITHUB_RUN_ID -f Dockerfile .
       - name: PUSH THE IMAGE TO docker.io
-        run: docker push bvdidev-stdio/ci-test:$GITHUB_RUN_ID
+        run: docker push caffeinecowboy444/ci-test:$GITHUB_RUN_ID
         
         
