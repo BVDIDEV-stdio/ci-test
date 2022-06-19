@@ -48,7 +48,7 @@ jobs:
       if: success()
       uses: appleboy/telegram-action@master
       with:
-        to: ${{ secrets.TELEGRAM_BOT_ID }}
+        to: ${{ secrets.TELEGRAM_DEST_ID }}
         token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         message: JOBS ARE RUN SUCCESSFUL
       
