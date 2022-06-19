@@ -41,7 +41,7 @@ jobs:
         
   sendNotification:
     if: always()
-    needs: checkCodeStyle
+    needs: buildProjectThenPublishIt
     runs-on: ubuntu-latest
     steps:
     - name: SEND SUCCESS NOTIFICATION
