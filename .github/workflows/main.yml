@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: LOG IN TO docker.io
         run: echo ${{ secrets.DOCKER_PASSWORD }} | docker login -u ${{ secrets.DOCKER_LOGIN }} --password-stdin
-      - uses: actions/checkout@master
+      - uses: actions/checkout@v3
       - name: BUILD IMAGE
         run: docker build -t bvdidev-stdio/ci-test:$GITHUB_RUN_ID -f Dockerfile .
       - name: PUSH THE IMAGE TO docker.io
