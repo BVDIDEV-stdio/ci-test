@@ -39,4 +39,25 @@ jobs:
       - name: PUSH THE IMAGE TO docker.io
         run: docker push caffeinecowboy444/ci-test:$GITHUB_RUN_ID
         
-        
+  sendNotification:
+    if: always()
+    needs: checkCodeStyle
+    runs-on: ubuntu-latest
+    steps:
+    - name: SEND SUCCESS NOTIFICATION
+      if: success()
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_BOT_ID }}
+        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        message: JOBS ARE RUN SUCCESSFUL
+      
+    - name: SEND FAILURE NOTIFICATION
+      if: failure()
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_BOT_ID }}
+        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        message: BRUH JOBS ARE FAILED
+
+
